@@ -45,10 +45,9 @@ jobs:
           context: .
           provenance: mode=max
           sbom: true
-          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry,push=true' }}
+          push: ${{ github.event_name != 'pull_request' }}
       - name: Docker Scout
         id: docker-scout
         if: ${{ github.event_name == 'pull_request' }}
