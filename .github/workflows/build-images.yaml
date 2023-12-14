@@ -12,6 +12,8 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    permissions:
+      pull_request: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,5 +56,5 @@ jobs:
         with:
           command: quickview,compare
           to-latest: true
-          image: ${{ steps.meta.outputs.tags[0] }}
+          image: ${{ steps.meta.outputs.tags }}
           token: ${{ secrets.DOCKERHUB_TOKEN }}
