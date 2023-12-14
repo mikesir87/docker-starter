@@ -58,3 +58,4 @@ jobs:
           to-latest: true
           image: ${{ steps.meta.outputs.tags }}
           token: ${{ secrets.DOCKERHUB_TOKEN }}
+          organization: ${{ secrets.DOCKERHUB_USERNAME }}
