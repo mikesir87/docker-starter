@@ -7,7 +7,7 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'superSecret'
 app.config['MYSQL_DATABASE_DB'] = 'memes'
-app.config['MYSQL_DATABASE_HOST'] = 'db'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_CURSORCLASS'] = pymysql.cursors.DictCursor
 mysql.init_app(app)
 
@@ -15,7 +15,7 @@ mysql.init_app(app)
 # The HTML returned from here will be sent to the browser making the request.
 @app.route("/")
 def index():
-    message = "Hello world!?"
+    message = "Hello world!"
     cursor = mysql.get_db().cursor()
     cursor.execute("SELECT * FROM memes ORDER BY RAND() LIMIT 1");
     row = cursor.fetchone()
