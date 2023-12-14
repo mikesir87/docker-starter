@@ -7,7 +7,7 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'superSecret'
 app.config['MYSQL_DATABASE_DB'] = 'memes'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = 'db'
 app.config['MYSQL_CURSORCLASS'] = pymysql.cursors.DictCursor
 mysql.init_app(app)
 
@@ -35,4 +35,4 @@ def add_meme():
 
 # This starts our Python app
 if __name__ == "__main__":
-    app.run(debug=True,host="0.0.0.0")
+    app.run(debug=True)
